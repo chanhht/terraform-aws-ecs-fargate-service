@@ -2,8 +2,7 @@
 # AWS LOAD BALANCER
 #------------------------------------------------------------------------------
 module "ecs-alb" {
-  source  = "cn-terraform/ecs-alb/aws"
-  version = "1.0.12"
+  source  = "github.com/chanhht/terraform-aws-ecs-alb"
 
   name_prefix = var.name_prefix
   vpc_id      = var.vpc_id
@@ -21,6 +20,7 @@ module "ecs-alb" {
   enable_deletion_protection       = var.lb_enable_deletion_protection
   enable_cross_zone_load_balancing = var.lb_enable_cross_zone_load_balancing
   enable_http2                     = var.lb_enable_http2
+  enable_alb_logs                  = false
   ip_address_type                  = var.lb_ip_address_type
 
   # Access Control to Application Load Balancer
